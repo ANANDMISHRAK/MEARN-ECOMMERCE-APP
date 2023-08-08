@@ -9,6 +9,7 @@ import CategoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from './routes/productRoutes.js'
 import  Path  from "path";
 import path from "path";
+import {fileURLToPath} from 'url';
 
 
 const app = express();
@@ -21,6 +22,10 @@ const PORT = process.env.PORT || 8000;
 
 //configure Database
 connectDB();
+
+//esModule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middelware
 app.use(cors())
